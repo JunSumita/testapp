@@ -230,8 +230,8 @@ DEPENDENCIES
   jquery-rails
   less-rails!
   listen (~> 3.0.5)
-  omniauth-twitter
   mysql2
+  omniauth-twitter
   puma (~> 3.0)
   rails (~> 5.0.3)
   sass-rails (~> 5.0)
