@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170529081744) do
     t.index ["unlock_token"], name: "index_log_users_on_unlock_token", unique: true
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "mail_address"
     t.string   "name"
     t.string   "password"
