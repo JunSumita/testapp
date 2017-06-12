@@ -8,6 +8,7 @@
       %th= model_class.human_attribute_name(:mail_address)
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:password)
+      %th= model_class.human_attribute_name(:category_id)
       %th= model_class.human_attribute_name(:created_at)
       %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -17,6 +18,10 @@
         %td= user.mail_address
         %td= user.name
         %td= "********"
+        - unless user.category.nil?
+          %td= user.category.name
+        - else
+          %td= ""
         %td=l user.created_at
         %td
           = link_to t('.show', :default => t("helpers.links.show")), user_path(user), :class => 'btn btn-default btn-xs'

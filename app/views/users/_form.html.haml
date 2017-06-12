@@ -15,6 +15,11 @@
       = f.password_field :password, class: 'form-control', required: true
     = f.error_span(:password)
   .form-group
+    = f.label :category_id, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.collection_select :category_id, Category.all, :id, :name ,class: 'form-control', required: true
+    = f.error_span(:category)
+  .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit nil,class: 'btn btn-primary'
       = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn btn-default'
