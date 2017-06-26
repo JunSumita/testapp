@@ -11,12 +11,14 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @users = User.all
+    @user = User.find(params[:id])
+    @categories = @user.categories
   end
 
   # GET /users/new
   def new
     @user = User.new
+    @user.categories.build
   end
 
   # GET /users/1/edit
@@ -71,6 +73,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:mail_address, :name, :password, :category_id)
+      params.require(:user).permit(:mail_address, :name, :password, :categories_attributes => [:id, :name])
     end
 end
