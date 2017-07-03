@@ -18,7 +18,8 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-    @user.categories.build
+    #@user.categories.build
+    @user.user_category_relationships.build
   end
 
   # GET /users/1/edit
@@ -73,6 +74,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:mail_address, :name, :password, :categories_attributes => [:id, :name])
+      params.require(:user).permit(:mail_address, :name, :password, :user_category_relationships_attributes => [:id, :user_id, :category_id])
     end
 end

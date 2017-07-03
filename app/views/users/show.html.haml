@@ -15,9 +15,13 @@
   %br
   = "********"
 %p
-  %strong= model_class.human_attribute_name(:category) + ':'
-  %br
-  = @categories.name
+  %strong= model_class.human_attribute_name(:category_id) + ':'
+  - unless @user.categories.blank?
+    %br
+    = @user.categories[0].name
+  - else
+    %br
+    = "none"
 
 
 = link_to t('.back', :default => t("helpers.links.back")), users_path, :class => 'btn btn-default'

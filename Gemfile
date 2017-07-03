@@ -13,6 +13,10 @@ gem 'rails', '~> 5.0.3'
 gem 'mysql2'
 
 gem 'pry-byebug', group: :development
+
+gem 'pry-rails'
+
+gem 'pry-doc'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

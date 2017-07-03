@@ -21,7 +21,7 @@
       -unless user.categories.blank?
         %td= user.categories[0].name
       - else
-        %td
+        %td= "none"
       %td=l user.created_at
       %td
         = link_to t('.show', :default => t("helpers.links.show")), user_path(user), :class => 'btn btn-default btn-xs'
