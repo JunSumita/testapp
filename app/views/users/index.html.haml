@@ -18,8 +18,9 @@
       %td= user.mail_address
       %td= user.name
       %td= user.password
-      -unless user.categories.blank?
-        %td= user.categories[0].name
+      - unless user.categories.blank?
+        - user.categories.each do |i|
+          %td= i.name
       - else
         %td= "none"
       %td=l user.created_at
