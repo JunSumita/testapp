@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170529081744) do
+ActiveRecord::Schema.define(version: 20170605073011) do
 
-  create_table "log_users", force: :cascade do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "log_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -35,10 +41,17 @@ ActiveRecord::Schema.define(version: 20170529081744) do
     t.string   "provider"
     t.string   "uid"
     t.string   "username"
-    t.index ["confirmation_token"], name: "index_log_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_log_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_log_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_log_users_on_unlock_token", unique: true
+    t.index ["confirmation_token"], name: "index_log_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_log_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_log_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["unlock_token"], name: "index_log_users_on_unlock_token", unique: true, using: :btree
+  end
+
+  create_table "user_category_relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

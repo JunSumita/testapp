@@ -15,7 +15,7 @@ class LogUser < ApplicationRecord
 
              def self.new_with_session(params, session)
         if session["devise.log_user_attributes"]
-            new session["devise.user_attributes"] do |user|
+            new session["devise.log_user_attributes"] do |user|
                 user.attributes = params
                 user.valid?
             end
