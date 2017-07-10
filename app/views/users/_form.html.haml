@@ -15,12 +15,7 @@
       = f.password_field :password, class: 'form-control', required: true
     = f.error_span(:password)
   .form-group
-    = f.association :categories, as: :select, input_html:{class: ""}
-    = f.fields_for :user_category_relationships do |category_field|
-      = category_field.label :category, class: 'control-label col-lg-2'
-      .col-lg-10
-      = category_field.select_tag :category_id, options_from_collection_for_select(Category.all, :id, :name), multiple: true, include_blank: true, class: '', required: true
-    = f.error_span(:category_id)
+    = f.association :categories, as: :select, multiple: true, include_blank: true, input_html:{class: 'searchable'}, required: true
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit nil,class: 'btn btn-primary'

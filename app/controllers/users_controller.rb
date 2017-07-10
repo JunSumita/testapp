@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-binding.pry
+    #binding.pry
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -74,6 +74,7 @@ binding.pry
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:mail_address, :name, :password, :user_category_relationships_attributes => [:id, :user_id, :category_id])
+      params.require(:user).permit(:mail_address, :name, :password,
+      category_ids: [])
     end
 end
