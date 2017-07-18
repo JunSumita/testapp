@@ -21,7 +21,7 @@
 .byebug_history
 
 # Ignore bundler gems.
-vendor/bundle
+vendor/*
 
 # Ignore other unneeded files.
 doc/
