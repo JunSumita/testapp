@@ -20,6 +20,8 @@ gem 'pry-doc'
 
 gem 'select2-rails'
 
+gem 'awesome_nested_set'
+
 gem "jquery-turbolinks"
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

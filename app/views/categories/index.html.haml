@@ -1,21 +1,12 @@
-%h1 Listing categories
+- model_class = Category
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
-
-  %tbody
-    - @categories.each do |category|
-      %tr
-        %td= category.name
-        %td= link_to 'Show', category
-        %td= link_to 'Edit', edit_category_path(category)
-        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+#jstree_categories
 
 %br
+%br
 
-= link_to 'New Category', new_category_path
+= link_to t('Create'), "#", :class => 'btn btn-success', :id => 'create_category'
+= link_to t('Rename'), "#", :class => 'btn btn-warning', :id => 'rename_category'
+= link_to t('Delete'), "#", :class => 'btn btn-danger',  :id => 'delete_category'
