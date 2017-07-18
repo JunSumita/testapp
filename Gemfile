@@ -17,6 +17,10 @@ gem 'pry-byebug', group: :development
 gem 'pry-rails'
 
 gem 'pry-doc'
+
+gem 'select2-rails'
+
+gem "jquery-turbolinks"
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
