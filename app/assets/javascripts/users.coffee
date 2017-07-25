@@ -7,3 +7,5 @@ jQuery ->
       allowClear: true  # x で選択したものを削除できる
       # 詳細は http://ivaynberg.github.io/select2/#documentation
     })
+    
+  $(".drag_and_drop").fileupload();

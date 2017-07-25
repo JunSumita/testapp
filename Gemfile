@@ -22,6 +22,17 @@ gem 'select2-rails'
 
 gem 'awesome_nested_set'
 
+# 画像保存
+gem 'carrierwave'
+# For Carrierwave(S3用)
+gem 'fog'
+# 画像加工用
+gem 'rmagick'
+
+gem 'mini_magick'
+
+gem "jquery-fileupload-rails"
+
 gem "jquery-turbolinks"
 # Use Puma as the app server
 gem 'puma', '~> 3.0'

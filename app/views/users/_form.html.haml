@@ -1,4 +1,4 @@
-= simple_form_for @user, html: { class: "form form-horizontal user" } do |f|
+= simple_form_for @user, html: { class: "form form-horizontal user",multipart: true } do |f|
   .form-group
     = f.label :mail_address, class: 'control-label col-lg-2'
     .col-lg-10
@@ -16,6 +16,11 @@
     = f.error_span(:password)
   .form-group
     = f.association :categories, as: :select, multiple: true, include_blank: true, input_html:{class: 'searchable'}, required: true
+  .form-group
+    = f.label :image, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.file_field :image, class: 'form-control', required: true, input_html:{class: 'cropper'}
+    = f.error_span(:image)
   .form-group
     .col-lg-offset-2.col-lg-10
       = f.submit nil,class: 'btn btn-primary'

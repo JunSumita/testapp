@@ -5,6 +5,7 @@
   %thead
     %tr
       %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:image)
       %th= model_class.human_attribute_name(:mail_address)
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:password)
@@ -15,6 +16,10 @@
     - @users.each do |user|
       %tr
       %td= link_to user.id, user_path(user)
+      %td
+        %ul
+          -unless user.image.blank?
+            %li= image_tag user.image.url(:thumb)
       %td= user.mail_address
       %td= user.name
       %td= user.password

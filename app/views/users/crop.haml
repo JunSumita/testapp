@@ -1,0 +1,37 @@
+:javascript
+  $(function(){
+    $("#cropbox").Jcrop({//サイズ変更があったら、アップデートする
+      onChange: update_crop,
+      onSelect: update_crop,
+      setSelect: [0,0,300,300],
+      aspectRatio: 1
+    });
+  });
+  function update_crop(coords){//アップデートする関数で、
+    var rx = 100/coords.w;
+    var ry = 100/coords.h;
+    $("#preview").css({//プレビューを更新する。
+      width: Math.round(rx * #{ @user.image.url(:medium).width }) + 'px',
+      height: Math.round(ry * #{ @user.image.url(:medium).height }) + 'px',
+      marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+      marginTop: '-' + Math.round(ry * coords.y) + 'px'
+    });
+    var ratio = #{@user.image.url(:original).width}/#{@user.image.url(:medium).width};
+    $("#crop_x").val(coords.x * ratio);//クロップするための4つの変数をformの中で更新する。
+    $("#crop_y").val(coords.y * ratio);//
+    $("#crop_w").val(coords.w * ratio);//
+    $("#crop_h").val(coords.h * ratio);//
+  }
+= image_tag @user.image.url(:medium), id: "cropbox"
+
+%h4 プレビュー
+%div{style: "width:100px; height:100px; overflow:hidden"}
+  = image_tag @user.image.url(:medium), id: "preview"
+
+
+= form_for @user do |f|
+  .form-group
+    - for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
+      = f.hidden_field attribute, id: attribute
+
+  %p= f.submit '送信', class: 'btn btn-primary'
