@@ -32,12 +32,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        if params[:user][:image].blank?#画像がないときは、今までどおり更新
-          format.html { redirect_to @user, notice: 'User was successfully created.' }
-          format.json { render :show, status: :created, location: @user }
-        else#画像があるときは、Cropに飛ばす。
-          render :crop
-        end
+          if params[:user][:image].blank?#画像がないときは、今までどおり更新
+            format.html { redirect_to @user, notice: 'User was successfully created.' }
+            format.json { render :show, status: :created, location: @user }
+          else#画像があるときは、Cropに飛ばす。
+            format.html { render :crop }
+          end
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -50,12 +50,12 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        if params[:user][:image].blank?#画像がないときは、今までどおり更新
-          format.html { redirect_to @user, notice: 'User was successfully updated.' }
-          format.json { render :show, status: :ok, location: @user }
-        else#画像があるときは、Cropに飛ばす。
-          render :crop
-        end
+          if params[:user][:image].blank?#画像がないときは、今までどおり更新
+            format.html { redirect_to @user, notice: 'User was successfully updated.' }
+            format.json { render :show, status: :ok, location: @user }
+          else#画像があるときは、Cropに飛ばす。
+            format.html { render :crop }
+          end
       else
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -82,6 +82,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:mail_address, :name, :password, :image,
+      :image_crop_x,
+      :image_crop_y,
+      :image_crop_w,
+      :image_crop_h,
       category_ids: [])
     end
 end

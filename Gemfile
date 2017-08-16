@@ -24,12 +24,13 @@ gem 'awesome_nested_set'
 
 # 画像保存
 gem 'carrierwave'
+gem 'carrierwave-crop'
 # For Carrierwave(S3用)
 gem 'fog'
 # 画像加工用
-gem 'rmagick'
+gem 'rmagick', :require => 'RMagick' ## Specify appropriate version, if needed
 
-gem 'mini_magick'
+gem 'mini_magick' ## Specify appropriate version, if needed
 
 gem "jquery-fileupload-rails"
 
@@ -47,6 +48,9 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+gem 'cropper-rails'
+
 #Haml
 gem 'haml-rails'
 # Twitter Bootstrap

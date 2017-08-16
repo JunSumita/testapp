@@ -1,7 +1,10 @@
 class User < ApplicationRecord
 mount_uploader :image, ImageUploader
-attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
-after_update :reprocess_image, if: :cropping?
+# crop用の仮想attribute
+  attr_accessor :image_crop_x
+  attr_accessor :image_crop_y
+  attr_accessor :image_crop_w
+  attr_accessor :image_crop_h
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
      VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

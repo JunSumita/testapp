@@ -15,7 +15,7 @@
 //= require jquery.turbolinks
 //= require jquery-fileupload
 //= require jquery.Jcrop
-//= require cropper.min
+//= require jquery.Jcrop.min
 //= require twitter/bootstrap
 //= require select2
 //= require jstree.min
