@@ -7,6 +7,10 @@
   %br
   = @user.mail_address
 %p
+  %strong= model_class.human_attribute_name(:image) + ':'
+  %br
+  = image_tag @user.image.url
+%p
   %strong= model_class.human_attribute_name(:name) + ':'
   %br
   = @user.name

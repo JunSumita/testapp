@@ -12,6 +12,10 @@
  *
  *= require select2
  *= require select2-bootstrap
+ *= require jquery.fileupload
+ *= require jquery.fileupload-ui
+ *= require jquery.Jcrop.min
+ *= require jquery.Jcrop
  *= require jstree.min
  *= require_tree .
  *= require_self

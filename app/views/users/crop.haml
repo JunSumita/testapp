@@ -1,0 +1,9 @@
+= simple_form_for @user, html: { class: "form form-horizontal user",multipart: true } do |f|
+  .form-group
+    = f.cropbox :image, width: 200, height: 200, input_html:{class: 'user_image_cropbox'}
+  %h4= "プレビュー"
+  .form-group
+    = f.previewbox :image, width: 200, height: 200, input_html:{class: 'user_image_previewbox'}
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit "Crop",class: 'btn btn-primary'

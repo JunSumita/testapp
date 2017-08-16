@@ -1,0 +1,6 @@
+%h4 プレビュー
+%div{style: "width:100px; height:100px; overflow:hidden"}
+  = image_tag @user.image.url(:thumb), input_html:{class: 'clopImg'}
+
+  = simple_form_for @user, html: { class: "form form-horizontal user",multipart: true } do |f|
+    = f.submit '送信', :class => 'btn btn-primary'
